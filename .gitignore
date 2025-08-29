@@ -1,0 +1,8 @@
+# Dependencias
+node_modules/
+
+# Archivos de entorno (no subir a git)
+.env
+
+# Sistema
+.DS_Store

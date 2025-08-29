@@ -1,0 +1,350 @@
+@use "sass:map"
+// ==========================
+// Sistema Tipográfico
+// ==========================
+$amp: 0.5deg // amplitud de giro (antes 2º)
+$dur: 3.3s // duración total del ciclo
+$pauseStart: 60%
+// Fuente principal y secundaria
+$font-primary: 'Urbanist', sans-serif
+$font-secondary: 'Inter', sans-serif
+
+// Paleta de pesos tipográficos
+$weights: (
+regular: 400,
+medium: 500,
+semibold: 600,
+bold: 700
+)
+
+// Mixin para aplicar clamp
+// Uso: +fluid-type(16, 20) → min:16px, max:20px
+=fluid-type($min, $max)
+  font-size: clamp(#{$min}px, #{$min / 16}rem + 1vw, #{$max}px)
+
+// ==========================
+// Jerarquía Tipográfica
+// ==========================
+
+// Titulares
+h1, .h1
+  font-family: $font-primary
+  font-weight: map.get($weights, bold)
+  line-height: 1.1
+  +fluid-type(34, 60)
+
+h2, .h2
+  font-family: $font-primary
+  font-weight: map.get($weights, semibold)
+  line-height: 1.2
+  +fluid-type(28, 48)
+
+h3, .h3
+  font-family: $font-primary
+  font-weight: map.get($weights, semibold)
+  line-height: 1.3
+  +fluid-type(22, 34)
+
+// Párrafos
+p, .body
+  font-family: $font-secondary
+  font-weight: map.get($weights, regular)
+  line-height: 1.6
+  +fluid-type(16, 20)
+  color: white
+
+.small
+  font-family: $font-secondary
+  font-weight: map.get($weights, medium)
+  line-height: 1.4
+  +fluid-type(14, 16)
+
+.caption
+  font-family: $font-secondary
+  font-weight: map.get($weights, regular)
+  line-height: 1.3
+  letter-spacing: 0.02em
+  +fluid-type(12, 14)
+
+.glass-2
+  background-color: transparent
+  border-radius: 16px
+  backdrop-filter: blur(50px)
+  -webkit-backdrop-filter: blur(50px)
+  border: 1px solid rgba(255, 255, 255, 0.2)
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.5) 100%)
+body
+  background: #1a1a1a
+  position: relative
+  > .bg-site
+    content: ""
+    transition: opacity 1s ease, background 1s ease
+    z-index: 0
+    position: fixed
+    inset: 0
+    background: radial-gradient(circle at center, #504f4f, #1a1a1a00)
+    opacity: 0
+    height: 100vh
+main
+  position: relative
+  z-index: 1
+.hero
+  padding: 120px 0 50px
+  min-height: 95vh
+  // background: radial-gradient(circle at center, #504f4f, #1a1a1a00)
+
+  @media screen and ( min-width: 768px )
+    padding: 150px 0 50px
+.min-vh
+  @media screen and ( min-width: 768px )
+    min-height: 100vh
+
+.btn-whatsapp
+  position: fixed
+  bottom: 20px
+  right: 20px
+  border-radius: 100%
+  aspect-ratio: 1 / 1
+  display: flex
+  align-items: center
+  justify-content: center
+  svg
+    width: 50px
+    height: 50px
+    path
+      fill: #26d367
+  &:hover
+    background: #26d367
+    svg
+      path
+        fill: #fff
+.btn
+  border-radius: 50px
+  &-primario
+    background: #f94a19
+    padding: 10px 20px
+    color: white
+    font-family: $font-primary
+    +fluid-type(16, 20)
+    &:hover,&:active
+      background: darken(#f94a19, 25%)
+      color: white
+.celular
+  border: solid 10px black
+  border-radius: 24px
+  position: sticky
+  top: 150px
+  width: 100%
+  max-width: 250px
+  background: linear-gradient(135deg, #3494E6, #3457D5, #34B3E6)
+  // aspect-ratio: 9 / 16
+  margin: 0 auto
+  overflow: hidden
+  .text-celular
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    height: 100%
+    animation: slide-text 5s linear infinite
+
+  &::before
+    content: ""
+    z-index: 1
+    width: 70px
+    height: 15px
+    border-radius: 10px 10px
+    display: block
+    position: absolute
+    top: 10px
+    border-top: 8px solid black
+    border-bottom: 8px solid black
+    border-left: 15px solid black
+    border-right: 15px solid black
+    background: white
+    left: 50%
+    transform: translateX(-50%)
+
+@keyframes slide-text
+  0%
+    transform: translateX(120%) // arranca fuera de la izquierda
+  50%
+    transform: translateX(0%) // se queda un momento
+  100%
+    transform: translateX(-120%)
+.card-do
+  min-height: 25vh
+  display: flex
+  align-items: center
+  opacity: 0
+  transform: translateY(40px)
+  transition: all .6s ease-out
+  &.visible
+    opacity: 1
+    transform: translateY(0)
+  @media screen and ( min-width: 768px )
+    margin: 0
+    padding: 20px
+  h3
+    color: #f94a19
+    margin: 0
+ul
+  padding: 0
+  list-style: none
+.emoji
+  font-size: 5rem
+.card-why
+  background-color: rgba(255, 255, 255, 0.1)
+  backdrop-filter: blur(10px)
+  border-radius: 15px
+  padding: 40px
+  border: inset 1px white
+.mapa
+  width: 100%
+  height: auto
+  aspect-ratio: 1/1
+  margin-top: 50px
+  @media screen and ( min-width: 768px )
+    height: 30vh
+.contact-img
+  position: relative
+  .datos-contacto
+    width: 100%
+    position: absolute
+    max-width: 768px
+    top: 50%
+    right: 0
+    z-index: 2
+    transform: translateY(-50%)
+    p
+      color: white
+    h2
+      color: #f94a19
+    @media screen and ( min-width: 768px )
+      padding-bottom: 50px
+      padding-right: 50px
+
+    a
+      color: white
+      font-weight: bold
+      text-decoration: none
+      font-size: clamp(20px,2vw, 25px)
+  &::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.5)
+    z-index: 1
+.review-card
+  border-radius: 16px
+  background-color: rgba(255, 255, 255, 0.1)
+  padding: 20px
+  img
+    margin: 0 auto
+    display: block
+  .rating
+    color: #f4c150
+  h3
+    color: white
+    text-align: center
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+  .review-text
+    height: 96px
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    margin: 0
+.imgCel-hero
+  position: relative
+  max-width: 350px
+  margin: 0 auto
+
+.cel-wrapper
+  position: relative
+  width: 100%
+  overflow: hidden
+  @media screen and ( min-width: 768px )
+    overflow: initial
+  img
+    width: 100%
+    height: auto
+    max-width: 200px
+    display: block
+    @media screen and ( min-width: 768px )
+      max-width: 300px
+  picture
+    display: block
+    transform: rotate(-15deg)
+    &.fixed
+      position: absolute
+      top: 0
+      left: 80px
+      width: 100%
+      transform: rotate(15deg)
+      display: inline-block
+      transform-origin: 50% 90% // pivota cerca de la base del teléfono
+      animation: vibrar-suave $dur infinite ease-in-out
+      will-change: transform
+
+@keyframes vibrar-suave
+  0%, #{$pauseStart}, 100%
+    transform: rotate(15deg)
+  10%
+    transform: rotate(15deg - $amp)
+  20%
+    transform: rotate(15deg + $amp)
+  30%
+    transform: rotate(15deg - $amp * 0.6)
+  40%
+    transform: rotate(15deg + $amp * 0.6)
+  50%
+    transform: rotate(15deg)
+
+    transform: rotate(15deg)
+
+.marcas
+  h5
+    color: white
+.swiper-pagination
+  position: relative
+  margin: 30px 0
+
+.more
+  color: #f94a19
+  font-weight: bold
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+.swiper-pagination-bullet-active
+  background: #f94a19
+.button-next-google, .button-prev-google,.button-next-video, .button-prev-video
+  width: 35px
+  height: 35px
+  color: black
+  background: white
+  border-radius: 100%
+  &::after
+    font-size: 20px
+.hacemos
+  position: relative
+  .container
+    position: relative
+
+  @media screen and ( min-width: 768px )
+    li:nth-child(odd)
+      article
+        transform: translateY(-50px)
+  article
+    p
+      font-size: 16px
+      margin: 0
+      color: white
+    h3
+      color: white
