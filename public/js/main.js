@@ -54,47 +54,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apunta al contenedor principal de Swiper, que en tu HTML tiene la clase 'swiper'
     const swiperContainer = document.querySelector('.google-reviews-swiper');
     if (swiperContainer) {
-      fetch('/api/google-reviews')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Problema al obtener los datos del servidor');
-            }
-            return response.json();
-        })
-        .then(reviews => {
-            // Llama a la función para mostrar los comentarios
-            displayReviews(reviews);
+      // Intenta primero el endpoint del servidor; si falla, usa JSON estático
+      (async () => {
+        let useProxyImages = true;
+        let reviews = [];
+        try {
+          const res = await fetch('/api/google-reviews', { cache: 'no-store' });
+          if (!res.ok) throw new Error('Respuesta no OK del proxy');
+          reviews = await res.json();
+          useProxyImages = true;
+        } catch (e) {
+          try {
+            const res2 = await fetch('data/google-reviews.json', { cache: 'no-store' });
+            if (!res2.ok) throw new Error('JSON estático no encontrado');
+            reviews = await res2.json();
+            useProxyImages = false; // sin servidor, usamos URLs directas de Google
+          } catch (e2) {
+            console.error('No se pudieron cargar reseñas (proxy ni JSON):', e, e2);
+            const wrap = document.getElementById('google-reviews-section');
+            if (wrap) wrap.innerHTML = '<p>No se pudieron cargar las reseñas en este momento.</p>';
+            return;
+          }
+        }
 
-            // Inicializamos Swiper aquí, apuntando al contenedor con la clase 'swiper'
-            new Swiper('.google-reviews-swiper', {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 15,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.button-next-google',
-                    prevEl: '.button-prev-google',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('google-reviews-section').innerHTML = '<p>No se pudieron cargar las reseñas en este momento.</p>';
+        // Renderiza y activa el carrusel
+        displayReviews(reviews, useProxyImages);
+        new Swiper('.google-reviews-swiper', {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 15,
+          pagination: { el: '.swiper-pagination', clickable: true },
+          navigation: { nextEl: '.button-next-google', prevEl: '.button-prev-google' },
+          breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
         });
+      })();
     }
 
-    function displayReviews(reviews) {
+    function displayReviews(reviews, useProxyImages = true) {
         // Apunta al contenedor del wrapper que en tu HTML tiene el ID 'google-reviews-section'
         const swiperWrapper = document.getElementById('google-reviews-section');
         if (!swiperWrapper) return;
@@ -104,9 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
         reviews.forEach(review => {
             const reviewCard = document.createElement('article');
             reviewCard.className = 'review-card card-why swiper-slide';
+            const photoSrc = useProxyImages
+              ? `/proxy-google-photo?url=${encodeURIComponent(review.profile_photo_url)}`
+              : review.profile_photo_url;
             reviewCard.innerHTML = `
                 <div class="review-header">
-                    <img src="/proxy-google-photo?url=${encodeURIComponent(review.profile_photo_url)}" alt="Foto de perfil de ${review.author_name}" class="reviewer-photo">
+                    <img src="${photoSrc}" alt="Foto de perfil de ${review.author_name}" class="reviewer-photo">
                     <h3>${review.author_name}</h3>
                     <div class="rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
                     </div>
