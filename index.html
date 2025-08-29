@@ -177,16 +177,10 @@
           <div class="col-12 col-md-4 imgCel-hero">
             <div class="cel-wrapper">
               <!-- Celular roto (base) -->
-              <picture>
-                <source srcset="img/celularRoto.webp" type="image/webp" media="(max-width: 1200px)">
-                <img src="img/celularRoto.png" alt="Celular moderno pantalla rota" width="1200" height="1800">
-              </picture>
+              <img src="img/celularRoto.webp" alt="Celular moderno pantalla rota" width="1200" height="1800" fetchpriority="high">
 
               <!-- Celular reparado (animación) -->
-              <picture class="fixed">
-                <source srcset="img/celularRotoBack.webp" type="image/webp" media="(max-width: 1200px)">
-                <img src="img/celularRotoBack.png" alt="Celular moderno pantalla reparado" width="1200" height="1800">
-              </picture>
+              <img src="img/celularRotoBack.webp" alt="Celular moderno pantalla reparado" width="1200" height="1800" fetchpriority="high" class="fixed">
             </div>
           </div>
 
@@ -589,7 +583,10 @@
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script async src="https://www.tiktok.com/embed.js"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
+  <!-- Carga variables de entorno en el cliente (crea public/env.js a partir de public/env.example.js) -->
+  <script src="env.js"></script>
   <script src="js/main.js"></script>
   
 </body>

@@ -317,17 +317,9 @@ ul {
   height: auto;
   max-width: 200px;
   display: block;
-}
-@media screen and (min-width: 768px) {
-  .cel-wrapper img {
-    max-width: 300px;
-  }
-}
-.cel-wrapper picture {
-  display: block;
   transform: rotate(-15deg);
 }
-.cel-wrapper picture.fixed {
+.cel-wrapper img.fixed {
   position: absolute;
   top: 0;
   left: 80px;
@@ -337,6 +329,11 @@ ul {
   transform-origin: 50% 90%;
   animation: vibrar-suave 3.3s infinite ease-in-out;
   will-change: transform;
+}
+@media screen and (min-width: 768px) {
+  .cel-wrapper img {
+    max-width: 300px;
+  }
 }
 
 @keyframes vibrar-suave {
@@ -430,6 +427,8 @@ header {
 header svg.logo {
   aspect-ratio: 1/1;
   max-height: 100px;
+  width: 100%;
+  max-width: 90px;
 }
 header ul {
   padding: 0;

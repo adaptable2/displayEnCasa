@@ -278,10 +278,6 @@ ul
     height: auto
     max-width: 200px
     display: block
-    @media screen and ( min-width: 768px )
-      max-width: 300px
-  picture
-    display: block
     transform: rotate(-15deg)
     &.fixed
       position: absolute
@@ -293,6 +289,8 @@ ul
       transform-origin: 50% 90% // pivota cerca de la base del teléfono
       animation: vibrar-suave $dur infinite ease-in-out
       will-change: transform
+    @media screen and ( min-width: 768px )
+      max-width: 300px
 
 @keyframes vibrar-suave
   0%, #{$pauseStart}, 100%

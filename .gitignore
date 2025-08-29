@@ -3,6 +3,8 @@ node_modules/
 
 # Archivos de entorno (no subir a git)
 .env
+public/env.js
+env.js
 
 # Sistema
 .DS_Store
