@@ -168,5 +168,50 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    // main.js
+
+    function loadMap() {
+      const d = document.getElementById('mapa');
+      if (!d) return; // seguridad si no existe en esta página
+      if (d.dataset.loaded) return;
+
+      d.dataset.loaded = "1";
+      d.innerHTML = `<iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d554.0114096483071!2d-75.6046249971185!3d6.15315067050749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683c43bb40789%3A0x54621ae62148d3be!2sCl.%2061%20Sur%20%2339-70%2C%20Alto%20Las%20Flores%2C%20Sabaneta%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1755736810490!5m2!1ses!2sco"
+        style="border:0" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>`;
+    }
+
+    // Evento de click para cargar el mapa solo cuando el usuario lo pida
+    const trigger = document.getElementById("mapaTrigger");
+    const placeholder = document.getElementById("mapa-placeholder");
+    const handleClick = (e) => {
+      if (e) e.preventDefault();
+      loadMap();
+      // opcional: quitar el placeholder si existe
+      const ph = document.getElementById("mapa-placeholder");
+      if (ph && ph.parentNode) ph.parentNode.removeChild(ph);
+    };
+    if (trigger) trigger.addEventListener("click", handleClick);
+    if (placeholder) placeholder.addEventListener("click", handleClick);
+
+    // Setup del modal de video (ejecuta dentro del DOMContentLoaded principal)
+    const videoModal = document.getElementById("videoModal");
+    const videoFrame = document.getElementById("videoFrame");
+    if (videoModal && videoFrame) {
+      document.querySelectorAll(".open-video").forEach(el => {
+        el.addEventListener("click", () => {
+          const videoId = el.dataset.video;
+          const src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          videoFrame.setAttribute("src", src);
+          const modal = new bootstrap.Modal(videoModal);
+          modal.show();
+        });
+      });
+      videoModal.addEventListener("hidden.bs.modal", () => {
+        videoFrame.setAttribute("src", "");
+      });
+    }
+
 
 });

@@ -50,9 +50,16 @@
   </script>
 
   <!-- En tu <head> -->
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" loading="lazy">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" loading="lazy"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.min.css"></noscript>
+
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
+
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -233,7 +240,7 @@
               </li>
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3>Diagnostico y respuestos</h3>
+                  <h3>Diagnóstico y repuestos</h3>
                   <p>
                     ¿No sabes qué falla tiene tu celular? Hacemos diagnóstico completo y te damos la mejor solución. Contamos con repuestos originales y alternativos para extender la vida de tu equipo.
                   </p>
@@ -249,7 +256,7 @@
               </li>
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3>Accesorios y proteccíones</h3>
+                  <h3>Accesorios y protecciones</h3>
                   <p>
                     Protege tu celular con accesorios que prolongan su vida útil. Ofrecemos protectores, fundas, cargadores y más, probados por nuestro equipo para asegurar compatibilidad y resistencia.
                   </p>
@@ -320,7 +327,13 @@
           <div class="col-12 p-0">
             <h2 class="text-center text-white">Estamos en Sabaneta </h2>
             <p class="text-center">Cl. 61 Sur #39-70, Alto Las Flores, Sabaneta, Antioquia</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d554.0114096483071!2d-75.6046249971185!3d6.15315067050749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683c43bb40789%3A0x54621ae62148d3be!2sCl.%2061%20Sur%20%2339-70%2C%20Alto%20Las%20Flores%2C%20Sabaneta%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1755736810490!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa" async></iframe>
+            <div id="mapa-placeholder">
+              <a href="#mapa" id="mapaTrigger" class="mapatrigger position-relative d-block">
+                <img class="d-none d-md-block img-fluid" src="img/mapapleaceholder.webp" alt="Ver mapa de Sabaneta" width="1920" height="301" loading="lazy">
+                <img class="d-block d-md-none img-fluid" src="img/mapapleaceholderM.webp" alt="Ver mapa de Sabaneta" width="413" height="416" loading="lazy">
+              </a>
+            </div>
+            <div id="mapa"></div>
           </div>
         </div>
       </div>
@@ -363,45 +376,19 @@
               <!-- Additional required wrapper -->
                 <div  class="swiper-wrapper">
                   <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <div style="padding:177.78% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/795772922?h=2fb124b284&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T2.mov" loading="lazy"></iframe></div>
+                    <div class="celular open-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="2pr3e_AtRDI" style="background-image: url(https://img.youtube.com/vi/2pr3e_AtRDI/hqdefault.jpg )">
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/637963985?h=0e0606bd16&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="IMG_4951.MOV" loading="lazy"></iframe></div>
+                    <div class="celular open-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="4WAskYQrX44" style="background-image: url(https://img.youtube.com/vi/4WAskYQrX44/hqdefault.jpg )">
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <div style="padding:177.78% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/795773065?h=758d99e943&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T1.mov" loading="lazy"></iframe>
-                      </div>
+                    <div class="celular open-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="6xJFjiZW3X0" style="background-image: url(https://img.youtube.com/vi/6xJFjiZW3X0/hqdefault.jpg )">
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/2pr3e_AtRDI" frameborder="0" allowfullscreen loading="lazy"> 
-                      </iframe>
-                    </div>
-                  </div>
-                  <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/4WAskYQrX44" frameborder="0" allowfullscreen loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
-                  <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/6xJFjiZW3X0" frameborder="0" allowfullscreen loading="lazy">
-                      </iframe>
-                    </div>
-                  </div>
-                  <div class="swiper-slide video-card">
-                    <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/ApoO6O-FH2A" frameborder="0" allowfullscreen loading="lazy">
-                      </iframe>
+                    <div class="celular open-video" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="ApoO6O-FH2A" style="background-image: url(https://img.youtube.com/vi/ApoO6O-FH2A/hqdefault.jpg )">
                     </div>
                   </div>
                 </div>
@@ -597,13 +584,22 @@
       </div>
     </div>
   </footer>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-  <script async src="https://www.tiktok.com/embed.js" defer></script>
-  <script src="https://player.vimeo.com/api/player.js" defer></script>
-  <!-- Carga variables de entorno en el cliente (crea public/env.js a partir de public/env.example.js) -->
-  <script src="env.js" defer></script>
-  <script src="js/main.js"></script>
+  <!-- Modal de Bootstrap -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="width: auto; margin: auto; background-color: transparent;">
+        <div class="modal-body modal-celular p-0">
+            <iframe id="videoFrame" src="" width="" title="Video" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JS: Bootstrap (bundle incluye Popper) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Después -->
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="env.js"></script>
+  <script defer src="js/main.js"></script>
   
 </body>
 </html>

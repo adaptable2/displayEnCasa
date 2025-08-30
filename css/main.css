@@ -1,3 +1,4 @@
+@charset "UTF-8";
 h1, .h1 {
   font-family: "Urbanist", sans-serif;
   font-weight: 700;
@@ -125,10 +126,38 @@ main {
   color: white;
 }
 
+#videoFrame {
+  aspect-ratio: 9/16;
+  width: 100%;
+  max-width: 750px;
+}
+
+.modal-celular {
+  border: solid 10px black;
+  border-radius: 24px;
+  width: 100%;
+  aspect-ratio: 9/15.5;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.modal-celular::before {
+  content: "";
+  z-index: 1;
+  width: 70px;
+  height: 15px;
+  border-radius: 10px 10px;
+  display: block;
+  position: absolute;
+  top: 10px;
+  border: 8px solid black;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .celular {
   border: solid 10px black;
   border-radius: 24px;
-  position: sticky;
   top: 150px;
   width: 100%;
   max-width: 250px;
@@ -136,6 +165,8 @@ main {
   aspect-ratio: 9/15.4;
   margin: 0 auto;
   overflow: hidden;
+  background: no-repeat center/cover;
+  cursor: pointer;
 }
 .celular .text-celular {
   display: flex;
@@ -145,6 +176,23 @@ main {
   height: 100%;
   animation: slide-text 5s linear infinite;
 }
+.celular::after {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+}
 .celular::before {
   content: "";
   z-index: 1;
@@ -153,7 +201,7 @@ main {
   border-radius: 10px 10px;
   display: block;
   position: absolute;
-  top: 10px;
+  top: 20px;
   border-top: 8px solid black;
   border-bottom: 8px solid black;
   border-left: 15px solid black;
@@ -408,6 +456,15 @@ ul {
 }
 .hacemos article h3 {
   color: white;
+}
+
+.mapatrigger p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f94a19;
+  z-index: 2;
 }
 
 header {
