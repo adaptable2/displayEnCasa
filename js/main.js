@@ -90,19 +90,54 @@ document.addEventListener('DOMContentLoaded', () => {
         const API_KEY = env.GOOGLE_API_KEY;
         const PLACE_ID = env.PLACE_ID;
 
-        if (!API_KEY || !PLACE_ID) {
-          console.warn('Faltan GOOGLE_API_KEY o PLACE_ID en window.ENV (env.js).');
-          if (section) section.innerHTML = '<p>Configura env.js con tu GOOGLE_API_KEY y PLACE_ID.</p>';
+        if (!PLACE_ID) {
+          console.warn('Falta PLACE_ID en window.ENV (env.js).');
+          if (section) section.innerHTML = '<p>Configura env.js con tu PLACE_ID.</p>';
           return;
         }
 
-        // Cargar el script de Google Maps JS API de forma dinámica
+        // 1) Intento de caché por 24h por PLACE_ID
+        const CACHE_KEY = `google_reviews_${PLACE_ID}`;
+        const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+        try {
+          const cachedRaw = localStorage.getItem(CACHE_KEY);
+          if (cachedRaw) {
+            const cached = JSON.parse(cachedRaw);
+            if (cached && Array.isArray(cached.reviews) && (Date.now() - (cached.timestamp || 0)) < ONE_DAY_MS) {
+              displayReviews(cached.reviews);
+              // Inicializa Swiper una única vez
+              const swiperEl = document.querySelector('.google-reviews-swiper');
+              if (swiperEl && !swiperEl.dataset.initialized) {
+                new Swiper('.google-reviews-swiper', {
+                  loop: true,
+                  slidesPerView: 1,
+                  spaceBetween: 15,
+                  pagination: { el: '.swiper-pagination', clickable: true },
+                  navigation: { nextEl: '.button-next-google', prevEl: '.button-prev-google' },
+                  breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+                });
+                swiperEl.dataset.initialized = '1';
+              }
+              return; // usar caché y no llamar a Google
+            }
+          }
+        } catch (e) {
+          // Si localStorage falla, seguimos sin caché
+          console.warn('No se pudo leer cache de reseñas:', e);
+        }
+
+        if (!API_KEY) {
+          console.warn('Falta GOOGLE_API_KEY en window.ENV (env.js).');
+          if (section) section.innerHTML = '<p>Configura env.js con tu GOOGLE_API_KEY.</p>';
+          return;
+        }
+
+        // 2) Cargar el script de Google Maps JS API y pedir reseñas
         const script = document.createElement('script');
         script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(API_KEY)}&libraries=places&language=es`;
         script.async = true;
         script.defer = true;
         script.onload = () => {
-          // Usamos PlacesService para obtener reseñas sin CORS ni backend
           const service = new google.maps.places.PlacesService(document.createElement('div'));
           service.getDetails(
             { placeId: PLACE_ID, fields: ['reviews'] },
@@ -115,24 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
               const reviews = (place && place.reviews) ? place.reviews : [];
               displayReviews(reviews);
 
-              // Inicializamos Swiper una vez cargadas las reseñas
-              new Swiper('.google-reviews-swiper', {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 15,
-                pagination: {
-                  el: '.swiper-pagination',
-                  clickable: true,
-                },
-                navigation: {
-                  nextEl: '.button-next-google',
-                  prevEl: '.button-prev-google',
-                },
-                breakpoints: {
-                  768: { slidesPerView: 2 },
-                  1024: { slidesPerView: 3 },
-                },
-              });
+              // Guardar en caché por 24h
+              try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), reviews }));
+              } catch (e) {
+                console.warn('No se pudo guardar cache de reseñas:', e);
+              }
+
+              // Inicializa Swiper una única vez
+              const swiperEl = document.querySelector('.google-reviews-swiper');
+              if (swiperEl && !swiperEl.dataset.initialized) {
+                new Swiper('.google-reviews-swiper', {
+                  loop: true,
+                  slidesPerView: 1,
+                  spaceBetween: 15,
+                  pagination: { el: '.swiper-pagination', clickable: true },
+                  navigation: { nextEl: '.button-next-google', prevEl: '.button-prev-google' },
+                  breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+                });
+                swiperEl.dataset.initialized = '1';
+              }
             }
           );
         };
