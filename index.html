@@ -10,6 +10,7 @@
   <meta name="robots" content="index, follow">
   <meta name="geo.region" content="CO-ANT">
   <meta name="geo.placename" content="Medellín">
+  <link rel="icon" sizes="180x180" href="favicon.ico">
   
   <!-- Schema.org markup for Google -->
   <script type="application/ld+json">
@@ -18,6 +19,8 @@
     "@type": "LocalBusiness",
     "name": "Display en casa",
     "description": "Servicio de reparación de celulares en Medellín con más de 22,000 equipos reparados",
+    "url": "https://displayencasa.com/",
+    "telephone": "+573193727945",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Calle 61 Sur #39-70",
@@ -30,16 +33,26 @@
       "latitude": "6.15315067050749",
       "longitude": "-75.6046249971185"
     },
-    "url": "https://displayencasa.com/",
-    "telephone": "+573193727945",
     "openingHours": "Mo-Sa 08:00-18:00",
-    "serviceType": "Cell phone repair"
+    "priceRange": "80.000 - 1'600.000 COP",
+    "sameAs": [
+      "https://www.facebook.com/displayencasa",
+      "https://www.instagram.com/displayencasa",
+      "https://www.tiktok.com/@displayencasa",
+      "https://www.youtube.com/@displayencasa"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "405"
+    }
   }
   </script>
+
   <!-- En tu <head> -->
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" loading="lazy">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" loading="lazy"/>
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -174,13 +187,15 @@
     <section id="hero" class="hero d-flex justify-content-center align-items-center content-section">
       <div class="container">
         <div class="row align-items-center justify-content-center">
-          <div class="col-12 col-md-4 imgCel-hero">
-            <div class="cel-wrapper">
-              <!-- Celular roto (base) -->
-              <img src="img/celularRoto.webp" alt="Celular moderno pantalla rota" width="1200" height="1800" fetchpriority="high">
-
-              <!-- Celular reparado (animación) -->
-              <img src="img/celularRotoBack.webp" alt="Celular moderno pantalla reparado" width="1200" height="1800" fetchpriority="high" class="fixed">
+          <div class="col-12 col-md-4 ">
+            <div class="imgCel-hero">
+              <div class="cel-wrapper">
+                <!-- Celular roto (base) -->
+                <img src="img/celularRoto.webp" alt="Celular moderno pantalla rota" width="150" height="479" loading="lazy" fetchpriority="high">
+  
+                <!-- Celular reparado (animación) -->
+                <img src="img/celularRotoBack.webp" alt="Celular moderno pantalla reparado" width="150" height="479" loading="lazy" fetchpriority="high" class="fixed">
+              </div>
             </div>
           </div>
 
@@ -210,7 +225,7 @@
             <ul class="row ">
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3><i> Reparaciónde pantallas </i></h3>
+                  <h3>Reparación de pantallas </h3>
                   <p>
                     ¿Pantalla rota, rayada o sin tacto? Cambiamos displays de todas las marcas con repuestos de calidad y garantía. Tu celular como nuevo en minutos, sin pérdida de datos ni riesgos.
                   </p>
@@ -218,7 +233,7 @@
               </li>
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3><i> Diagnostico y respuestos</i></h3>
+                  <h3>Diagnostico y respuestos</h3>
                   <p>
                     ¿No sabes qué falla tiene tu celular? Hacemos diagnóstico completo y te damos la mejor solución. Contamos con repuestos originales y alternativos para extender la vida de tu equipo.
                   </p>
@@ -226,7 +241,7 @@
               </li>
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3><i> Cambio de batería</i></h3>
+                  <h3>Cambio de batería</h3>
                   <p>
                     ¿Tu celular se descarga, calienta o apaga solo? Es hora de cambiar batería. Usamos repuestos de alto rendimiento y garantía para darte más horas de uso sin preocupaciones.
                   </p>
@@ -234,7 +249,7 @@
               </li>
               <li class="col-12 col-md-6 pb-3 d-flex">
                 <article class="card-why">
-                  <h3><i> Accesosríos y proteccíones</i></h3>
+                  <h3>Accesorios y proteccíones</h3>
                   <p>
                     Protege tu celular con accesorios que prolongan su vida útil. Ofrecemos protectores, fundas, cargadores y más, probados por nuestro equipo para asegurar compatibilidad y resistencia.
                   </p>
@@ -305,7 +320,7 @@
           <div class="col-12 p-0">
             <h2 class="text-center text-white">Estamos en Sabaneta </h2>
             <p class="text-center">Cl. 61 Sur #39-70, Alto Las Flores, Sabaneta, Antioquia</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d554.0114096483071!2d-75.6046249971185!3d6.15315067050749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683c43bb40789%3A0x54621ae62148d3be!2sCl.%2061%20Sur%20%2339-70%2C%20Alto%20Las%20Flores%2C%20Sabaneta%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1755736810490!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d554.0114096483071!2d-75.6046249971185!3d6.15315067050749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683c43bb40789%3A0x54621ae62148d3be!2sCl.%2061%20Sur%20%2339-70%2C%20Alto%20Las%20Flores%2C%20Sabaneta%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1755736810490!5m2!1ses!2sco" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mapa" async></iframe>
           </div>
         </div>
       </div>
@@ -349,42 +364,43 @@
                 <div  class="swiper-wrapper">
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/795772922?h=2fb124b284&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T2.mov"></iframe></div>
+                      <div style="padding:177.78% 0 0 0;position:relative;">
+                        <iframe src="https://player.vimeo.com/video/795772922?h=2fb124b284&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T2.mov" loading="lazy"></iframe></div>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/637963985?h=0e0606bd16&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="IMG_4951.MOV"></iframe></div>
+                      <div style="padding:177.78% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/637963985?h=0e0606bd16&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="IMG_4951.MOV" loading="lazy"></iframe></div>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
                       <div style="padding:177.78% 0 0 0;position:relative;">
-                        <iframe src="https://player.vimeo.com/video/795773065?h=758d99e943&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T1.mov"></iframe>
+                        <iframe src="https://player.vimeo.com/video/795773065?h=758d99e943&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="T1.mov" loading="lazy"></iframe>
                       </div>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/2pr3e_AtRDI" frameborder="0" allowfullscreen>
+                      <iframe width="230" height="408" src="https://www.youtube.com/embed/2pr3e_AtRDI" frameborder="0" allowfullscreen loading="lazy"> 
                       </iframe>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/4WAskYQrX44" frameborder="0" allowfullscreen>
+                      <iframe width="230" height="408" src="https://www.youtube.com/embed/4WAskYQrX44" frameborder="0" allowfullscreen loading="lazy">
                       </iframe>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/6xJFjiZW3X0" frameborder="0" allowfullscreen>
+                      <iframe width="230" height="408" src="https://www.youtube.com/embed/6xJFjiZW3X0" frameborder="0" allowfullscreen loading="lazy">
                       </iframe>
                     </div>
                   </div>
                   <div class="swiper-slide video-card">
                     <div class="celular">
-                      <iframe width="230" height="408" src="https://www.youtube.com/embed/ApoO6O-FH2A" frameborder="0" allowfullscreen>
+                      <iframe width="230" height="408" src="https://www.youtube.com/embed/ApoO6O-FH2A" frameborder="0" allowfullscreen loading="lazy">
                       </iframe>
                     </div>
                   </div>
@@ -413,42 +429,42 @@
         </div>
         <div class="row text-center">
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/iphone.webp" alt="Reparación de iPhone en Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/iphone.webp" alt="Reparación de iPhone en Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Apple</h5>
             <p class="small">iPhone, iPad y más</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/samsung.webp" alt="Reparación Samsung en Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/samsung.webp" alt="Reparación Samsung en Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Samsung</h5>
             <p class="small">Galaxy y Note</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/xiaomi.webp" alt="Reparación Xiaomi Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/xiaomi.webp" alt="Reparación Xiaomi Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Xiaomi</h5>
             <p class="small">Redmi, Mi, Poco</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/huawei.webp" alt="Reparación Huawei Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/huawei.webp" alt="Reparación Huawei Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Huawei</h5>
             <p class="small">Serie P, Mate, Nova</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/motorola.webp" alt="Reparación Motorola Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/motorola.webp" alt="Reparación Motorola Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Motorola</h5>
             <p class="small">Moto G, Edge, Razr</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/oppo.webp" alt="Reparación Oppo Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/oppo.webp" alt="Reparación Oppo Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Oppo</h5>
             <p class="small">Find, Reno, A Series</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/pixel.webp" alt="Reparación Google pixel Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/pixel.webp" alt="Reparación Google pixel Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>Google pixel</h5>
             <p class="small">pixel 6a, pixel 7, pixel 8</p>
           </div>
           <div class="col-6 col-md-3 mb-4">
-            <img src="img/marcas/oneplus-13.webp" alt="Reparación OnePlus Medellín" class="img-fluid mb-2" width="100" height="100">
+            <img src="img/marcas/oneplus-13.webp" alt="Reparación OnePlus Medellín" class="img-fluid mb-2" width="100" height="100" loading="lazy">
             <h5>OnePlus</h5>
             <p class="small">OnePlus 11, OnePlus 12</p>
           </div>
@@ -581,12 +597,12 @@
       </div>
     </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script async src="https://www.tiktok.com/embed.js"></script>
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer" loading="lazy"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script async src="https://www.tiktok.com/embed.js" defer></script>
+  <script src="https://player.vimeo.com/api/player.js" defer></script>
   <!-- Carga variables de entorno en el cliente (crea public/env.js a partir de public/env.example.js) -->
-  <script src="env.js"></script>
+  <script src="env.js" defer></script>
   <script src="js/main.js"></script>
   
 </body>

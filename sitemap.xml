@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://displayencasa.com/</loc>
+    <lastmod>2025-08-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sección del blog -->
+  <url>
+    <loc>https://displayencasa.com/blog/</loc>
+    <lastmod>2025-08-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Ejemplo de una entrada de blog -->
+  <!-- <url>
+    <loc>https://displayencasa.com/blog/reparacion-celulares-medellin</loc>
+    <lastmod>2025-08-27</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://displayencasa.com/blog/cambio-pantalla-iphone</loc>
+    <lastmod>2025-08-27</lastmod>
+    <priority>0.7</priority>
+  </url> -->
+
+</urlset>
