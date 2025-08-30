@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const bg = document.getElementById("bg-site");
 
     const gradients = [
-      "radial-gradient(circle at 40% 60%, #f94a19 0%, transparent 60%), radial-gradient(circle at 70% 40%, #5c7398 0%, transparent 65%), radial-gradient(circle at 20% 80%, #1a1a1a 0%, transparent 70%)",
       "radial-gradient(circle at 50% 50%, #2a2f3b 0%, transparent 55%), radial-gradient(circle at 20% 80%, #7a2c87 0%, transparent 65%), radial-gradient(circle at 80% 20%, #f94a19 0%, transparent 70%)",
       "radial-gradient(circle at 50% 70%, #3d3d3d 0%, transparent 55%), radial-gradient(circle at 20% 40%, #1f4068 0%, transparent 65%), radial-gradient(circle at 80% 60%, #f97450 0%, transparent 70%)",
       "radial-gradient(circle at 30% 80%, #7a7a7a 0%, transparent 50%), radial-gradient(circle at 70% 30%, #2a2f3b 0%, transparent 60%), radial-gradient(circle at 50% 50%, #f94a19 0%, transparent 65%)",
+      "radial-gradient(circle at 40% 60%, #f94a19 0%, transparent 60%), radial-gradient(circle at 70% 40%, #5c7398 0%, transparent 65%), radial-gradient(circle at 20% 80%, #1a1a1a 0%, transparent 70%)",
       "radial-gradient(circle at 60% 20%, #5c7398 0%, transparent 55%), radial-gradient(circle at 30% 70%, #0d1b2a 0%, transparent 65%), radial-gradient(circle at 80% 80%, #f6a58d 0%, transparent 70%)",
       "radial-gradient(circle at 40% 20%, #3c1053 0%, transparent 50%), radial-gradient(circle at 70% 70%, #1a1a1a 0%, transparent 60%), radial-gradient(circle at 60% 80%, #f94a19 0%, transparent 70%)",
     ];
