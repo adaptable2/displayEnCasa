@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <div id="bg-site" class="bg-site"></div>
+  <div id="bg-site" class="bg-site" style="opacity: 1; background: radial-gradient(circle, rgb(42, 47, 59) 0%, transparent 55%), radial-gradient(circle at 20% 80%, rgb(122, 44, 135) 0%, transparent 65%), radial-gradient(circle at 80% 20%, rgb(249, 74, 25) 0%, transparent 70%);"></div>
   <header>
     <div class="container">
       <div class="row">
@@ -199,10 +199,12 @@
             <div class="imgCel-hero">
               <div class="cel-wrapper">
                 <!-- Celular roto (base) -->
-                <img src="img/celularRoto.webp" alt="Celular moderno pantalla rota" width="150" height="479" loading="lazy" fetchpriority="high">
+                <img class="d-none d-md-block" src="img/celularRoto.webp" alt="Celular moderno pantalla rota" width="150" height="479" loading="lazy" fetchpriority="high">
+                <img class="d-block d-md-none" src="img/celularRotoM.webp" alt="Celular moderno pantalla rota" width="150" height="479" loading="lazy" fetchpriority="high">
   
                 <!-- Celular reparado (animación) -->
-                <img src="img/celularRotoBack.webp" alt="Celular moderno pantalla reparada" width="150" height="479"  fetchpriority="high" class="fixed">
+                <img class="fixed d-none d-md-block" src="img/celularRotoBack.webp" alt="Celular moderno pantalla reparada" width="150" height="479"  fetchpriority="high">
+                <img class="fixed d-block d-md-none" src="img/celularRotoBackM.webp" alt="Celular moderno pantalla reparada" width="150" height="479"  fetchpriority="high">
               </div>
             </div>
           </div>
