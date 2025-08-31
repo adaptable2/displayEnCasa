@@ -51,11 +51,39 @@ document.addEventListener('DOMContentLoaded', () => {
       );
       sectionObserver.observe(whySection);
     }
+    // Utilidad: carga un script dinámicamente
+    function loadScript(src, onload, onerror) {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.defer = true;
+      s.onload = onload || function(){};
+      s.onerror = onerror || function(){};
+      document.head.appendChild(s);
+    }
+
+    // Asegura que window.ENV exista. Si no, intenta cargar env.example.js.
+    function ensureEnvReady(callback) {
+      if (window.ENV && typeof window.ENV === 'object') {
+        callback();
+        return;
+      }
+      // Si no existe ENV, intentamos fallback al ejemplo
+      loadScript('env.example.js', function() {
+        // Tras cargar el ejemplo, seguimos aunque falten claves
+        callback();
+      }, function() {
+        // Si tampoco existe el ejemplo, igual continuamos (main.js siempre debe correr)
+        console.warn('No se encontró env.js ni env.example.js. Continuando sin ENV.');
+        callback();
+      });
+    }
+
     // Apunta al contenedor principal de Swiper, que en tu HTML tiene la clase 'swiper'
     const swiperContainer = document.querySelector('.google-reviews-swiper');
     if (swiperContainer) {
       // Carga de reseñas usando Google Maps JS API (sin backend)
-      loadGoogleReviewsVanilla();
+      ensureEnvReady(loadGoogleReviewsVanilla);
     }
 
     function displayReviews(reviews) {
